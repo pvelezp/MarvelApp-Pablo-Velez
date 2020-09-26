@@ -1,0 +1,66 @@
+.navbar {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    display: flex;
+   flex-direction: column;
+    background-color: black ;
+}
+
+.navbar__brandTitle > strong {
+    background-color: #EC1D24;
+    padding: 0.26rem;
+}
+.nav-item {
+    
+    font-size: 1.7rem;
+}
+.navbar__top {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    align-items: center;
+}
+
+.navbar__brandTitle {
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+
+.navbar__favoritesButton {
+    color: gray ;
+    z-index: 100;
+    justify-content: flex-end;
+}
+
+.navbar__options {
+    margin-top: 1em;
+    display: flex;
+    justify-content: space-evenly;
+
+    width: 60%;
+}
+
+@media screen and (max-width:600px) {
+    .navbar {
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        display: flex;
+        position: sticky;
+     align-items: center;
+     top:0;
+       
+        background-color: black ;
+    }
+    
+
+    .navbar__brandTitle {
+        font-weight: 600;
+        font-size: 1.5rem;
+    }
+
+    .nav-item {
+        
+        font-size: 1.3rem;
+    }
+    
+}

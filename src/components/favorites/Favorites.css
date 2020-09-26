@@ -1,0 +1,13 @@
+.favorites__title {
+    padding: 0.9rem;
+}
+
+.favorites__list {
+
+    width: 80%;
+    margin: 0 auto;
+    padding: 0.9em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}

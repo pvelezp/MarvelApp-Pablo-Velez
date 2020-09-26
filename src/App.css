@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Slab:300,400,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap');
+
+* {
+  font-family: 'Josefin Slab', serif;
+  color: #cccccc;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+
+.App__container {
+  width: 100%;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

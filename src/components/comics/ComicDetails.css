@@ -1,0 +1,73 @@
+.comicDetails >h2 {
+    margin-top: 2rem;
+   text-align: center;
+}
+
+.comicDetailsBody {
+
+    display: flex;
+    width: 85%;
+    margin: 0 auto;
+    padding: 2rem;
+    align-items: center;
+    justify-content:space-evenly;
+    background-color: #EC1D24;
+}
+.comic__Stories{
+    margin-top: 1.5rem;
+    
+}
+
+.comicDetailsSection2 {
+    min-width: 200px;
+    max-width: 500px;
+    width: 100%;
+    padding-left: 2rem;
+}
+.comicDetailsSection1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ 
+}
+
+
+
+.comicDetailsSection1 {
+    position: relative;
+    -webkit-perspective: 603px;
+    perspective: 603px;
+}
+
+.comicDetails__img {
+    height: 250px;
+    object-fit: contain;
+    -webkit-transform: rotateX(0deg) rotateY(-35deg);
+transform: rotateX(0deg) rotateY(-35deg);
+box-shadow:
+  0 2.8px 2.2px rgba(20, 20, 20, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.16),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.22),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.4),
+  0 100px 80px rgba(0, 0, 0, 0.12)
+}
+
+.comicDetail__backIcon {
+    text-align: center;
+    margin: 1.4rem 0;
+    cursor: pointer;
+    }
+
+@media screen and (max-width: 700px) {
+    .comicDetailsBody {
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+    }
+
+    .comicDetailsSection2 {
+        margin-top: 2rem;
+        width: 100%;
+    }
+}

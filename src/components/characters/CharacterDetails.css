@@ -1,0 +1,73 @@
+.characterDetail {
+    width: 100%;
+    
+}
+
+.character__Card {
+    display: flex;
+    justify-content: center;
+}
+
+.character__Card > img {
+    max-width: 30%;
+    min-width: 240px;
+    min-height:337px ;
+    object-fit: cover;
+}
+
+.characterDetail__backIcon {
+text-align: center;
+margin: 1.4rem 0;
+cursor: pointer;
+}
+.character__CardDescription {
+    max-width: 30%;
+    margin-top: 3rem;
+    margin-left: 2rem;
+  
+}
+
+.character__comicsTitle {
+    padding: 1.8rem 4rem;
+    padding-bottom: 1rem;
+}
+
+
+.character__storiesTitle {
+    padding: 3rem 4rem;
+    padding-bottom: 1rem;
+}
+.character__storiesRow {
+    padding:  0 4rem;
+    padding-bottom: 4rem;
+}
+@media screen and (max-width: 600px) {
+    .character__Card {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+       
+      width: 100%;
+    }
+
+    .character__CardDescription {
+    
+        min-width: 90%;
+      
+        margin: 2rem 2rem;
+    }
+
+    .character__comicsSwiper {
+        min-width: 100% !important;
+        padding-top: 6rem;
+    }
+
+    .characters__title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 130px;
+       margin-right: 3rem;
+       margin-bottom: -0.5rem;
+    }
+}
