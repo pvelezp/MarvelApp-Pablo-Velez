@@ -1,108 +1,144 @@
-
 .comic {
-    position: relative;
-    overflow: hidden;
-    transition: transform .3s;   
-    cursor: pointer; 
-    margin-bottom: 3rem;
-}
-
-.comic > img {
-    width: 100%;
-    object-fit: contain;
-    border-radius: 10px;
-    height: 100%;
-    box-shadow:  3px 4px 14px rgba(0,0,0,0.6);
-    transition: transform .2s;
-   
-}
-
-.comic__content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 1em;
-    height: 100%;
-    width: 100%;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    z-index: 100;
-}
-
-.comic__title {
-    transition: transform .12s;
-    transform: translate(0,-1000%);
-    font-family: sans-serif;
-    font-weight: 800;
-    color:#fafafa;
-  }
-
-.comic__favoriteIcon {
-  
-
- transition: transform .12s;
-    transform: translate(0,-1000%);
-    outline-style: none;
-    outline-width: 0;
-}
-
-
-  .comic__button {
-    transition: transform .12s;
-    transform: translate(0,1000%);
-    margin: 0 auto;
-    width: 50%;
-    border-radius: 4px;
-    padding: 0.3rem 0.7rem;
-    border: 1px solid #fafafa;
-    background-color: transparent;
-    font-family: sans-serif;
-    font-weight: 600;
-  }
-
-  .comic__description {
-    transition: transform .12s;
-    transform: translate(0,1000%);
-    color:#fafafa;
-    font-weight: 600;
-  }
-  .comic::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background: linear-gradient(rgba(235, 71, 126, 0.8), rgba(71, 180, 235, 0.8));
-    height: 0;
-    width: 100%;
-    padding-bottom: 100%;
-    border-radius: 50%;
-    transform: translate(-50%, 50%) scale(0.01) rotate(45deg);
-    transition: inherit;
-  }
-  
-  .comic:hover .comic__title, .comic:hover .comic__button, .comic:hover .comic__favoriteIcon,
-  .comic:hover .comic__description {
-    transform: translate(0);
-    transition: transform 0.3s 0.3s;
-  }
-  .comic:hover .comic__img {
-    transform: scale(1.5) rotate(10deg);
-  }
-  .comic:hover::after {
-    transform: scale(2.5) rotate(45deg);
-  }
-
-  @media screen and (max-width: 600px) {
-    
-.comic {
-  height: 50%;
-  width: 50%;
-  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+  cursor: pointer;
   margin-bottom: 3rem;
 }
 
+.comic img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  border-radius: 10px;
+  -webkit-box-shadow: 3px 4px 14px rgba(0, 0, 0, 0.6);
+          box-shadow: 3px 4px 14px rgba(0, 0, 0, 0.6);
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: -webkit-transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
+}
 
+.comic::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(235, 71, 126, 0.8)), to(rgba(71, 180, 235, 0.8)));
+  background: linear-gradient(rgba(235, 71, 126, 0.8), rgba(71, 180, 235, 0.8));
+  height: 0;
+  width: 100%;
+  padding-bottom: 100%;
+  border-radius: 50%;
+  -webkit-transform: translate(-50%, 50%) scale(0.01) rotate(45deg);
+          transform: translate(-50%, 50%) scale(0.01) rotate(45deg);
+  -webkit-transition: inherit;
+  transition: inherit;
+}
+
+.comic__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 1em;
+  height: 100%;
+  width: 100%;
+  color: #fafafa;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  z-index: 100;
+}
+
+.comic__title {
+  -webkit-transition: -webkit-transform 0.12s;
+  transition: -webkit-transform 0.12s;
+  transition: transform 0.12s;
+  transition: transform 0.12s, -webkit-transform 0.12s;
+  -webkit-transform: translate(0, -1000%);
+          transform: translate(0, -1000%);
+  font-family: sans-serif;
+  font-weight: 800;
+  color: #fafafa;
+}
+
+.comic__favoriteIcon {
+  -webkit-transition: -webkit-transform 0.12s;
+  transition: -webkit-transform 0.12s;
+  transition: transform 0.12s;
+  transition: transform 0.12s, -webkit-transform 0.12s;
+  -webkit-transform: translate(0, -1000%);
+          transform: translate(0, -1000%);
+  outline-style: none;
+  outline-width: 0;
+}
+
+.comic__button {
+  -webkit-transition: -webkit-transform 0.12s;
+  transition: -webkit-transform 0.12s;
+  transition: transform 0.12s;
+  transition: transform 0.12s, -webkit-transform 0.12s;
+  -webkit-transform: translate(0, 1000%);
+          transform: translate(0, 1000%);
+  margin: 0 auto;
+  width: 50%;
+  border-radius: 4px;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid #fafafa;
+  background-color: transparent;
+  font-family: sans-serif;
+  font-weight: 600;
+}
+
+.comic__description {
+  -webkit-transition: -webkit-transform 0.12s;
+  transition: -webkit-transform 0.12s;
+  transition: transform 0.12s;
+  transition: transform 0.12s, -webkit-transform 0.12s;
+  -webkit-transform: translate(0, 1000%);
+          transform: translate(0, 1000%);
+  color: #fafafa;
+  font-weight: 600;
+}
+
+.comic:hover .comic__title, .comic:hover .comic__button, .comic:hover .comic__favoriteIcon,
+.comic:hover .comic__description {
+  -webkit-transform: translate(0);
+          transform: translate(0);
+  -webkit-transition: -webkit-transform 0.3s 0.3s;
+  transition: -webkit-transform 0.3s 0.3s;
+  transition: transform 0.3s 0.3s;
+  transition: transform 0.3s 0.3s, -webkit-transform 0.3s 0.3s;
+}
+
+.comic:hover .comic__img {
+  -webkit-transform: scale(1.5) rotate(10deg);
+          transform: scale(1.5) rotate(10deg);
+}
+
+.comic:hover::after {
+  -webkit-transform: scale(2.5) rotate(45deg);
+          transform: scale(2.5) rotate(45deg);
+}
+
+@media screen and (max-width: 600px) {
+  .comic {
+    height: 50%;
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 3rem;
   }
+}
+/*# sourceMappingURL=Comic.css.map */

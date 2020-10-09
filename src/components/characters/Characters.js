@@ -1,61 +1,55 @@
 import React,{useState,useEffect} from 'react'
 import Character from './Character'
-import './Characters.css'
+import './Characters.scss'
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { Input, MenuItem, Select, CircularProgress } from '@material-ui/core';
+import { PUBLIC_KEY, HASH,BASE_URL } from './../../api/constants';
+import { Input, CircularProgress } from '@material-ui/core';
 import SearchIcon  from '@material-ui/icons/Search';
 import axios from 'axios'
 
 const Characters = () => {
-
-    const PUBLIC_KEY = 'c41644a8e3492b01a30e89f7838aa4f5'
-    const HASH = 'b93e66cb4173c623ae254b1c6eec0860'
-   
     const [characters, setCharacters] = useState([])
     const [count]= useState(60)
     const [offset, setOffset] = useState(0)
-    const [order, setOrder]= useState('name')
+    const [order]= useState('name')
    const [characterName, setCharacterName]= useState('')
    const [characterComics, setCharacterComics] = useState('')
    const [characterStories, setCharacterStories] = useState('')
   const [filteredData, setFilteredData] = useState([])
-    const MARVEL_CHARACTER = `https://gateway.marvel.com:443/v1/public/characters?orderBy=${order}&limit=${count}&offset=${offset}&ts=1&apikey=${PUBLIC_KEY}&hash=${HASH}`
+    const MARVEL_CHARACTERS = `${BASE_URL}/characters?orderBy=${order}&limit=${count}&offset=${offset}&ts=1&apikey=${PUBLIC_KEY}&hash=${HASH}`
 
     useEffect(()=> {
 const fetchData = async () => {
-    
-   await fetch(MARVEL_CHARACTER)
-    .then(res => res.json())
-    .then(res => setCharacters([...res?.data.results]))
+      await axios.get(MARVEL_CHARACTERS)
+    .then(res => setCharacters([...res?.data.data.results]))
 }
 fetchData()
         setOffset(offset => offset + count +1)
     },[ ,order])
 
+
     const infiniteData = async () => {
         setOffset(offset => offset + count +1)
-        await fetch(MARVEL_CHARACTER)
-        .then(res => res.json())
-        .then(res => setCharacters([...characters,...res?.data?.results]))
+        await axios.get(MARVEL_CHARACTERS)
+        .then(res => setCharacters([...characters,...res?.data?.data.results]))
     }
 
     // filter by name
 const searchCharacterbyName = e => {
     e.preventDefault()
     const filterData = async () => {
-        await axios.get(`https://gateway.marvel.com:443/v1/public/characters?name=${characterName}&ts=1&apikey=${PUBLIC_KEY}&hash=${HASH}`)
+        await axios.get(`${BASE_URL}/characters?name=${characterName}&ts=1&apikey=${PUBLIC_KEY}&hash=${HASH}`)
         .then(res => setFilteredData(res?.data.data.results))
     }
-
     filterData()
     setCharacterName('')
 }
-//Ultimate X-Men (2000) #40
+
 // filter by COmics
 const searchCharacterbyComics = e => {
      e.preventDefault()
      const filterData = async () => {
- await axios.get(`https://gateway.marvel.com:443/v1/public/characters?comics=${characterComics}&ts=1&apikey=${PUBLIC_KEY}&hash=${HASH}`)
+ await axios.get(`${BASE_URL}/characters?comics=${characterComics}&ts=1&apikey=${PUBLIC_KEY}&hash=${HASH}`)
  .then(res => setFilteredData(res?.data?.data?.results))
      }
     filterData()
@@ -66,7 +60,7 @@ const searchCharacterbyComics = e => {
 const searchCharacterbyStories= e => {
     e.preventDefault()
      const filterData = async () => {
- await axios.get(`https://gateway.marvel.com:443/v1/public/characters?stories=${characterStories}&ts=1&apikey=${PUBLIC_KEY}&hash=${HASH}`)
+ await axios.get(`${BASE_URL}/characters?stories=${characterStories}&ts=1&apikey=${PUBLIC_KEY}&hash=${HASH}`)
  .then(res => setFilteredData(res?.data?.data?.results))
      }
     filterData()
@@ -80,19 +74,7 @@ const searchCharacterbyStories= e => {
             <div className="characters__title">
             <h2>Characters</h2> 
 
-            <div className="characters__orderSelect">
-                <h5>Order by:</h5>
-            <Select
-            
-            className="characters__select"
-             value={order}
-            onChange={e => setOrder(e.target.value)}
-            >
-                <MenuItem className="orderBy__option" value='name'>Ascendant</MenuItem>
-                <MenuItem  className="orderBy__option" value='-name'>Descendant</MenuItem>
-            </Select>
 
-            </div>
             </div>
             
             <div className="characters__filters">

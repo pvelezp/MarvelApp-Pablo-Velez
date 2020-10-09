@@ -1,5 +1,5 @@
 import React,{useContext, useState} from 'react'
-import './Comic.css'
+import './Comic.scss'
 import { useHistory } from 'react-router-dom';
 import { IconButton } from '@material-ui/core';
 import  FavoriteIcon  from '@material-ui/icons/Favorite';
@@ -7,10 +7,8 @@ import  FavoriteBorderIcon  from '@material-ui/icons/FavoriteBorder';
 import { FavoriteContext } from './../../context/FavoriteProvider';
 
 const Comic = ({comic}) => {
-  
    const history =  useHistory()
    const {favorites, dispatch }= useContext(FavoriteContext)
-
    const [isFavorite, setIsFavorite] = useState(false)
 
     function truncate (str, n) {
@@ -19,7 +17,6 @@ const Comic = ({comic}) => {
 
     const addToFavorite = () => {
         setIsFavorite(!isFavorite)
-
         if(isFavorite === false) {
             dispatch({
                 type:'ADD_TO_FAVORITES',
@@ -31,9 +28,7 @@ const Comic = ({comic}) => {
                 id: comic.id
             })
         }
-
     }
-
 
     return (
         <div className="comic col-12 col-sm-6 col-md-4 col-lg-3">

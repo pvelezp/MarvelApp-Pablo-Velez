@@ -2,48 +2,42 @@ import React,{useState,useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, {Navigation,Pagination,EffectFade, EffectCoverflow ,Thumbs} from 'swiper'
-import './CharacterDetails.css'
+import './CharacterDetails.scss'
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import axios from 'axios';
-
+import { PUBLIC_KEY, HASH } from './../../api/constants';
 SwiperCore.use([Navigation, Pagination, Thumbs])
-
 SwiperCore.use([EffectFade]);
 SwiperCore.use([EffectCoverflow]);
 
 const CharacterDetails = ({history}) => {
-    const [ setThumbsSwiper] = useState(null)
+    const [setThumbsSwiper] = useState(null)
     const {characterId} = useParams()
-    const PUBLIC_KEY = 'c41644a8e3492b01a30e89f7838aa4f5'
-    const HASH = 'b93e66cb4173c623ae254b1c6eec0860'
-
-   const MARVEL_CHARACTER = `https://gateway.marvel.com:443/v1/public/characters/${characterId}?ts=1&apikey=${PUBLIC_KEY}&hash=${HASH}`
+    const MARVEL_CHARACTER = `https://gateway.marvel.com:443/v1/public/characters/${characterId}?ts=1&apikey=${PUBLIC_KEY}&hash=${HASH}`
     const [character, setCharacter] = useState(null)
     const [characterComics, setCharacterComics] = useState([])
     const [characterStories, setCharacterStories] = useState([])
-  console.log(characterComics)
+ 
   function truncate (str, n) {
     return str?.length > n ? str.substr(0, n-1) + "..." : str;
 }
+
+
 // fetch every character data
     useEffect(()=> {
+        window.scrollTo(0, 0)
         const fetchData = async () => {
-           await fetch(MARVEL_CHARACTER)
-        .then(res => res.json())
-        .then(res => setCharacter(res.data.results[0]))
-        
-        }
-
+           await axios.get(MARVEL_CHARACTER)
+        .then(res => setCharacter(res.data.data.results[0]))
+            }
         fetchData()
     },[])
 // fetch character Comics:
 useEffect(() => {
     const fetchComics = async() => {
         await axios(`http://gateway.marvel.com/v1/public/characters/${characterId}/comics?ts=1&apikey=${PUBLIC_KEY}&hash=${HASH}`)
-        
         .then(res => setCharacterComics(res.data.data.results))
     }
-
     fetchComics()
 }, [])
 
@@ -53,7 +47,6 @@ useEffect(() => {
         await axios(`http://gateway.marvel.com/v1/public/characters/${characterId}/stories?ts=1&apikey=${PUBLIC_KEY}&hash=${HASH}`)
         .then(res => setCharacterStories(res.data.data.results))
     }
-
     fetchStories()
 }, [])
 

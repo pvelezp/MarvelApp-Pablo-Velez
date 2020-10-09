@@ -1,66 +1,96 @@
 .navbar {
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-    display: flex;
-   flex-direction: column;
-    background-color: black ;
+  -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: black;
 }
 
 .navbar__brandTitle > strong {
-    background-color: #EC1D24;
-    padding: 0.26rem;
+  background-color: #EC1D24;
+  padding: 0.26rem;
 }
+
 .nav-item {
-    
-    font-size: 1.7rem;
+  font-size: 1.7rem;
 }
+
 .navbar__top {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding: 0.5rem 1rem;
-    align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navbar__logged {
+  margin-right: 0.8rem;
+}
+
+.navbar__logoutButton button {
+  margin-left: 0.2rem;
+  background-color: red;
+  outline-width: 0;
+  padding: 0.2rem 0.4rem;
+  border-radius: 10px;
 }
 
 .navbar__brandTitle {
-    font-weight: 600;
-    font-size: 2rem;
+  font-weight: 600;
+  font-size: 2rem;
 }
 
-
 .navbar__favoritesButton {
-    color: gray ;
-    z-index: 100;
-    justify-content: flex-end;
+  color: gray;
+  z-index: 100;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .navbar__options {
-    margin-top: 1em;
+  margin-top: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  width: 60%;
+}
+
+@media screen and (max-width: 600px) {
+  .navbar {
+    -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-evenly;
-
-    width: 60%;
+    position: -webkit-sticky;
+    position: sticky;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    top: 0;
+    background-color: black;
+  }
+  .navbar__brandTitle {
+    font-weight: 600;
+    font-size: 1.5rem;
+  }
+  .nav-item {
+    font-size: 1.3rem;
+  }
 }
-
-@media screen and (max-width:600px) {
-    .navbar {
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-        display: flex;
-        position: sticky;
-     align-items: center;
-     top:0;
-       
-        background-color: black ;
-    }
-    
-
-    .navbar__brandTitle {
-        font-weight: 600;
-        font-size: 1.5rem;
-    }
-
-    .nav-item {
-        
-        font-size: 1.3rem;
-    }
-    
-}
+/*# sourceMappingURL=NavBar.css.map */

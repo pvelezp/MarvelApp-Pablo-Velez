@@ -1,5 +1,5 @@
 import React,{useContext, useState} from 'react'
-import './Character.css'
+import './Character.scss'
 import {useHistory} from 'react-router-dom'
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import FavoriteIcon from '@material-ui/icons/Favorite';
@@ -9,11 +9,9 @@ import { FavoriteContext } from './../../context/FavoriteProvider';
 const Character = ({character}) => {
   //  const [{favorites}, dispatch] = useStateValue()
   const {favorites, dispatch }= useContext(FavoriteContext)
-
   const [isFavorite, setIsFavorite] = useState(false)
     const history = useHistory()
    
-
     function truncate (str, n) {
         return str?.length > n ? str.substr(0, n-1) + "..." : str;
     }

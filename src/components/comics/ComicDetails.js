@@ -1,28 +1,24 @@
 import React,{useState, useEffect} from 'react'
 import { useParams, useHistory } from 'react-router-dom';
 import axios from 'axios'
-import './ComicDetails.css'
+import './ComicDetails.scss'
 import KeyboardBackspaceIcon  from '@material-ui/icons/KeyboardBackspace';
-
+import { PUBLIC_KEY, HASH } from './../../api/constants';
 
 const ComicDetails = () => {
-const history = useHistory()
-    const {comicId} =useParams()
-
-    const PUBLIC_KEY = 'c41644a8e3492b01a30e89f7838aa4f5'
-    const HASH = 'b93e66cb4173c623ae254b1c6eec0860'
+   const history = useHistory()
+   const {comicId} = useParams()
    const MARVEL_COMIC = `https://gateway.marvel.com:443/v1/public/comics/${comicId}?ts=1&apikey=${PUBLIC_KEY}&hash=${HASH}`
-   
    const [comicDetails, setComicDetails] = useState([])
    const [comicStories, setComicStories] =useState([])
 
    // bring general comic details
    useEffect(() => {
+    window.scrollTo(0, 0)
        const fetchComic = async () => {
         await axios.get(MARVEL_COMIC)
         .then(res => setComicDetails(res.data.data.results[0]))
        }
-
        fetchComic()
    }, [])
 
@@ -32,14 +28,10 @@ const history = useHistory()
      await axios.get(`http://gateway.marvel.com/v1/public/comics/${comicId}/stories?ts=1&apikey=${PUBLIC_KEY}&hash=${HASH}`)
      .then(res => setComicStories(res.data.data.results))
     }
-
     fetchComic()
 }, [])
 
 const stories = comicStories?.map(story => story.title ).join(',  ')
-
-
-   // fetch comic's stories
 
     return (
         <div className="comicDetails">

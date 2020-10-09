@@ -1,31 +1,30 @@
 import React,{useState, useEffect} from 'react'
-import './Story.css'
+import './Story.scss'
+import { PUBLIC_KEY, HASH} from './../../api/constants';
 import { useHistory } from 'react-router-dom';
+import axios from 'axios'
+
 const Story = ({story}) => {
 
     const RESOURCE_URI = story?.comics?.items[0]?.resourceURI
-    const PUBLIC_KEY = 'c41644a8e3492b01a30e89f7838aa4f5'
-    const HASH = 'b93e66cb4173c623ae254b1c6eec0860'
     const MARVEL_CHARACTER = `${RESOURCE_URI}?ts=1&apikey=${PUBLIC_KEY}&hash=${HASH}`
     const history = useHistory()
     const [comics, setComics] = useState([])
 
     useEffect(()=> {
-        fetch(MARVEL_CHARACTER)
-        .then(res => res.json())
-        .then(res => setComics(res.data.results))
-
-
+        axios.get(MARVEL_CHARACTER)
+        .then(res => setComics(res.data.data.results))
     },[])
 
     const story_characters = comics[0]?.characters?.items?.map(character => character.name ).join(',  ')
+    const title = story.title[0].toUpperCase() + story.title.slice(1)
 
     return (
         <div className="story animate__animated animate__fadeIn ">
       
        
             <div className="story__title">
-            <h2>{story.title}</h2>
+            <h2>{title}</h2>
             </div>
 
             <div className="story__details">

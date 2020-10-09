@@ -2,9 +2,10 @@ import React,{useState, useEffect} from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, {Navigation,Pagination,EffectFade, EffectCoverflow ,Thumbs, Virtual} from 'swiper'
 import 'swiper/swiper-bundle.css'
-import './MainPage.css'
+import './MainPage.scss'
 import { useHistory } from 'react-router-dom';
-
+import axios from 'axios'
+import { PUBLIC_KEY, HASH, BASE_URL } from './../../api/constants';
 SwiperCore.use([Navigation, Pagination, Thumbs])
 SwiperCore.use([Virtual]);
 SwiperCore.use([EffectFade]);
@@ -12,35 +13,25 @@ SwiperCore.use([EffectCoverflow]);
 
 const MainPage = () => {
     const history =  useHistory()
-const [thumbsSwiper, setThumbsSwiper] = useState(null)
-    const PUBLIC_KEY = 'c41644a8e3492b01a30e89f7838aa4f5'
-    const HASH = 'b93e66cb4173c623ae254b1c6eec0860'
-   
+    const [thumbsSwiper, setThumbsSwiper] = useState(null)
     const [characters, setCharacters] = useState([])
+    const [comics, setComics] = useState([])
     const [count]= useState(60)
     const [offset, setOffset] = useState(Math.random()*100)
     const [order]= useState('name')
 
-  
-    const MARVEL_CHARACTER = `https://gateway.marvel.com:443/v1/public/characters?orderBy=${order}&limit=${count}&offset=${offset}&ts=1&apikey=${PUBLIC_KEY}&hash=${HASH}`
+    const MARVEL_CHARACTERS = `${BASE_URL}/characters?orderBy=${order}&limit=${count}&offset=${offset}&ts=1&apikey=${PUBLIC_KEY}&hash=${HASH}`
+    const MARVEL_COMICS = `${BASE_URL}/comics?&limit=40&ts=1&offset=${offset}&&apikey=${PUBLIC_KEY}&hash=${HASH}`
 
     useEffect(()=> {
-
-        fetch(MARVEL_CHARACTER)
-        .then(res => res.json())
-        .then(res => setCharacters([...res.data.results]))
+        axios.get(MARVEL_CHARACTERS)
+        .then(res => setCharacters([...res.data.data.results]))
         setOffset(offset => offset + count +1)
     },[ ])
 
-    const MARVEL_COMICS = `https://gateway.marvel.com:443/v1/public/comics?&limit=40&ts=1&offset=${offset}&&apikey=${PUBLIC_KEY}&hash=${HASH}`
-
-    const [comics, setComics] = useState([])
-
-
     useEffect(()=> {
-        fetch(MARVEL_COMICS)
-        .then(res => res.json())
-        .then(res => setComics(res?.data?.results))
+        axios.get(MARVEL_COMICS)
+        .then(res => setComics(res?.data?.data.results))
     },[])
 
 

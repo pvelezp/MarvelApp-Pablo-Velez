@@ -1,82 +1,79 @@
 .story {
-    
-    margin: 0 auto;
-    box-shadow: 1px 0 4px 3px rgba(0,0,0,0.7);
-    border-radius: 4px;
-   margin-bottom: 2rem;
-    padding: 2rem;
-    width: 80%;
-    background-color: #EC1D24;
+  margin: 0 auto;
+  -webkit-box-shadow: 1px 0 4px 3px rgba(0, 0, 0, 0.7);
+          box-shadow: 1px 0 4px 3px rgba(0, 0, 0, 0.7);
+  border-radius: 4px;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  width: 80%;
+  background-color: #EC1D24;
 }
 
-
-.story__title >h2 {
-    font-family: sans-serif;
-    font-weight: 800;
-    text-align: center;
+.story__title h2 {
+  font-family: sans-serif;
+  font-weight: 800;
+  text-align: center;
 }
 
 .story__details {
-    margin-top: 2rem;
-   
+  margin-top: 2rem;
 }
 
-.story__details > h5 {
-    font-weight: 700;
-    margin-bottom: 1rem;
+.story__details h5 {
+  font-weight: 800;
+  margin-bottom: 1rem;
 }
 
 .story__comics {
-display: flex;
-width:100%;
-justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-
-.story__comics {
-    display: flex;
-    align-items: center;
-    width: 70%;
-   
-    width: 100%
-}
-
-.story__comics > p {
-    margin-left: 1rem;
-    text-align: center;
-   
+.story__comics p {
+  margin-left: 1rem;
+  text-align: center;
 }
 
 .story__characters {
-    margin-top: 1.5rem;
+  margin-top: 1.5rem;
 }
 
-.story__characters >h5 {
-    font-weight: 700;
+.story__characters h5 {
+  font-weight: 800;
 }
 
 .story__imgContainer {
-    position: relative;
--webkit-perspective: 603px;
-perspective: 603px;
+  position: relative;
+  -webkit-perspective: 603px;
+  perspective: 603px;
 }
 
 .story__ComicImg {
-    height: 170px;
-    object-fit: contain;
-    -webkit-transform: rotateX(0deg) rotateY(-35deg);
-transform: rotateX(0deg) rotateY(-35deg);
-box-shadow: 7px 6px 6px rgba(0,0,0,0.3);
+  height: 170px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -webkit-transform: rotateX(0deg) rotateY(-35deg);
+  transform: rotateX(0deg) rotateY(-35deg);
+  -webkit-box-shadow: 7px 6px 6px rgba(0, 0, 0, 0.4);
+          box-shadow: 7px 6px 6px rgba(0, 0, 0, 0.4);
 }
 
 @media screen and (max-width: 600px) {
-.story {
+  .story {
     width: 90%;
-}
-.story__title >h2 {
+  }
+  .story__title h2 {
     font-family: sans-serif;
     font-weight: 800;
     font-size: 1.3rem;
+  }
 }
-
-}
+/*# sourceMappingURL=Story.css.map */

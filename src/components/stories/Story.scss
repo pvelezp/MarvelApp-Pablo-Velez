@@ -1,0 +1,85 @@
+// variables
+
+$font-family: sans-serif;
+$story-background: #EC1D24;
+$font-weight: 800;
+
+//mixings
+@mixin box-shadow($shadow) {
+    box-shadow: $shadow;
+}
+
+.story {
+    margin: 0 auto;
+    @include box-shadow(1px 0 4px 3px rgba(0,0,0,0.7));
+    border-radius: 4px;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    width: 80%;
+    background-color: $story-background;
+}
+
+.story__title  {
+    h2 {
+    font-family: $font-family;
+    font-weight: $font-weight;
+    text-align: center;
+    }
+}
+
+.story__details {
+    margin-top: 2rem;
+    h5 {
+        font-weight: $font-weight;
+        margin-bottom: 1rem;
+        } 
+}
+
+
+.story__comics {
+display: flex;
+width:100%;
+justify-content: center;
+align-items: center;
+    p{
+        margin-left: 1rem;
+        text-align: center;
+     }
+}
+
+.story__characters {
+    margin-top: 1.5rem;
+    h5 {
+        font-weight: $font-weight;
+        }
+}
+
+
+
+.story__imgContainer {
+    position: relative;
+    -webkit-perspective: 603px;
+    perspective: 603px;
+}
+
+.story__ComicImg {
+    height: 170px;
+    object-fit: contain;
+    -webkit-transform: rotateX(0deg) rotateY(-35deg);
+    transform: rotateX(0deg) rotateY(-35deg);
+    @include box-shadow(7px 6px 6px rgba(0,0,0,0.4))
+}
+
+@media screen and (max-width: 600px) {
+.story {
+    width: 90%;
+        }
+.story__title {
+    h2 {
+        font-family: sans-serif;
+        font-weight: $font-weight;
+        font-size: 1.3rem;
+        }
+}
+
+}

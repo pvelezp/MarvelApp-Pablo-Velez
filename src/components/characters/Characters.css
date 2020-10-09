@@ -1,86 +1,65 @@
 .characters {
-    margin-top: 2.5rem;
-    transition: 450ms -webkit-transform;
-    transition: 450ms transform;
-    transition: 450ms transform, 450ms -webkit-transform;
-    font-size: 0;
-    white-space: nowrap;
-
-    padding-bottom: 10px;
-    overflow-y: hidden;
+  margin-top: 2.5rem;
+  transition: 450ms -webkit-transform;
+  -webkit-transition: 450ms -webkit-transform;
+  transition: 450ms transform;
+  transition: 450ms transform, 450ms -webkit-transform;
+  font-size: 0;
+  white-space: nowrap;
+  padding-bottom: 10px;
+  overflow-y: hidden;
 }
+
 .characters__list {
-    margin-top: 5rem;
+  margin-top: 4rem;
 }
-.characters__title {
-    padding-left: 3rem;
-    margin-bottom: 3rem;
 
+.characters__title {
+  padding-left: 3rem;
 }
 
 .characters__filters {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.characters__orderSelect {
-   
-   justify-content: center;
-   display: flex;
-   margin-bottom: 2.5rem;
-align-items: center;
-}
-
-.characters__select {
-    background-color: silver !important;
-    margin-left: 1rem;
-    padding: 0 0.8rem;
-    border-radius: 5px;
-    color: black
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
 .charactersComics__filter {
-    background-color: rgb(51, 47, 47);
-    width:250px;
-    border-radius: 20px;
-    padding: 0.5rem;
-    
+  background-color: #332f2f;
+  width: 250px;
+  border-radius: 20px;
+  padding: 0.5rem;
 }
 
 .orderBy__option {
-    color: black !important;
+  color: black !important;
 }
 
 .characters__input {
-width: 70%;
-height: 20px;
-border: none;
-outline-width: 0;
-color: whitesmoke !important;
+  width: 70%;
+  height: 20px;
+  border: none;
+  outline-width: 0;
+  color: whitesmoke !important;
 }
 
 @media screen and (max-width: 600px) {
-    .characters__select {
-        background-color: silver !important;
-        margin-left: 1rem;
-        padding: 0 0.8rem;
-        border-radius: 5px;
-        color: black;
-        margin-bottom: 2rem;
-    }  
-
-    .characters__orderSelect {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .characters__filters {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-       
-        height: 160px;
-    }
+  .characters__filters {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-top: -3rem;
+    height: 160px;
+  }
 }
+/*# sourceMappingURL=Characters.css.map */

@@ -1,0 +1,104 @@
+//variables
+
+//mixins
+@mixin flexin($justify) {
+    display: flex;
+    justify-content: $justify;
+    align-items: center;
+    flex-direction: column;
+ 
+}
+
+.login {
+    height: 100vh;
+    
+    @include flexin(center);
+
+    form {
+        height:200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+     
+        box-shadow: 1px 4px 5px rgba(0,0,0,0.5);
+        button{
+            outline-width: 0;
+            background-color: red;
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+        }
+        input {
+            border-radius: 8px;
+            padding:0.3rem;
+            outline-width: 0;;
+        }
+    }
+
+    button {
+        outline-width: 0;
+        background-color: red;
+        padding: 0.5rem 1.2rem;
+        border-radius: 20px;  
+    }
+}
+
+.login__formFormSignup {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    button {
+        outline-width: 0;
+     margin-top: 0.4rem;
+        border-radius: 0px;
+border: none;
+    }
+}
+
+.modal__headerHead {
+    display: flex;
+    justify-content: space-between;
+}
+.modal__body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    
+
+    input {
+        border-radius: 10px;
+        border: none;
+        padding: 0.4rem;
+        margin-bottom: 0.5rem;  
+    }
+}
+.modal__bodyNames {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    input {
+        border-radius: 10px;
+        border: none;
+        padding: 0.4rem;
+        margin-bottom: 0.5rem;
+    }
+}
+
+.modal__button {
+    button {
+        outline-width: 0;
+        border:none;
+        border-radius: 20px;
+        padding: 0.3rem 0.6rem;
+        color: white;
+    background-color: red;
+    margin-top: 0.5rem;
+    }
+}
+.modal__bodyFooter {
+    margin-top: 0.4rem;
+    
+}

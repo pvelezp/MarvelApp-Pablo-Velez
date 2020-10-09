@@ -1,97 +1,122 @@
 .comics__list {
-    display: flex;
-    flex-wrap: wrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
-.comics >h2 {
-    padding: 1em;
-    font-weight: 600;
+.comics h2 {
+  padding: 1em;
+  font-weight: 600;
 }
+
 .comics__filters {
-    display: flex;
-    justify-content: space-evenly;
-    
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
+
 .comics__filter {
-    border: 1px solid lightgray;
-    border-radius: 20px;
-    background-color: rgb(29, 28, 28);
-    width: 26%;
+  border: 1px solid lightgray;
+  border-radius: 20px;
+  background-color: #1d1c1c;
+  width: 26%;
 }
 
 .comics__formatTitle {
-    margin-top: 3rem;
-    padding-left: 1.4rem;
-    margin-bottom: -3rem;
+  margin-top: 3rem;
+  padding-left: 1.4rem;
+  margin-bottom: -3rem;
 }
 
-.comics__filter > form > input {
-    border: none;
-    background-color: rgb(29, 28, 28);
-    outline-width: 0;
-    border-radius: 20px;
-    padding:0.5em;
-    width:80%
+.comics__filter form input {
+  border: none;
+  background-color: #1d1c1c;
+  outline-width: 0;
+  border-radius: 20px;
+  padding: 0.5em;
+  width: 80%;
 }
-.comics__filter > form > button {
-    display: none;
+
+.comics__filter form button {
+  display: none;
 }
 
 .comics__select {
-    background-color: silver !important;
-    margin-left: 1rem;
-    padding: 0 0.8rem;
-    border-radius: 5px;
-    color: black
+  background-color: silver !important;
+  margin-left: 1rem;
+  padding: 0 0.8rem;
+  border-radius: 5px;
+  color: black;
 }
 
 .comics__formatSelect {
-    background-color: silver !important;
-    margin-left: 1rem;
-    padding: 0 0.8rem;
-    border-radius: 5px;
-    color: black
+  background-color: silver !important;
+  margin-left: 1rem;
+  padding: 0 0.8rem;
+  border-radius: 5px;
+  color: black;
 }
 
 .comics__orderSelect {
-    display: flex;
-    justify-content: space-evenly;
-    margin-bottom: 2rem;
-
-    align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin-bottom: 2rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
-.comics__orderSelect  >h5 {
-    margin-left: 2rem;
-}
 
+.comics__orderSelect h5 {
+  margin-left: 2rem;
+}
 
 .comics__orderName {
-    margin:0 1rem;
+  margin: 0 1rem;
 }
 
 .comics__orderFormat {
-    margin:0 1rem;
+  margin: 0 1rem;
 }
 
 @media screen and (max-width: 600px) {
-    .comics__filters {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
- 
-        height: 11em;
-    }
-
-    .comics__filter {
-        border: 1px solid lightgray;
-        border-radius: 20px;
-        background-color: rgb(29, 28, 28);
-        width: 70%;
-    }
-    .comics__orderSelect {
-        display: flex;
-
-        align-items: center;
-        justify-content: center;
-    }
+  .comics__filters {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 11em;
+  }
+  .comics__filter {
+    border: 1px solid lightgray;
+    border-radius: 20px;
+    background-color: #1d1c1c;
+    width: 70%;
+  }
+  .comics__orderSelect {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
 }
+/*# sourceMappingURL=Comics.css.map */

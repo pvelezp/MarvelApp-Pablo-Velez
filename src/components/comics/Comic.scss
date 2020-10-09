@@ -1,0 +1,127 @@
+//variables
+$font-weight: 600;
+$color: #fafafa;
+
+//mixins
+@mixin transition-transform($time){
+  transition: transform $time;
+}
+
+@mixin transforming($scale,$rotation) {
+  transform: scale($scale) rotate($rotation);
+}
+
+@mixin dimensions($height,$width){
+  height: $height;
+  width: $width;
+}
+
+.comic {
+    position: relative;
+    overflow: hidden;
+    @include transition-transform(.3s);
+      
+    cursor: pointer; 
+    margin-bottom: 3rem;
+
+    img {
+
+      @include dimensions(100%,100% );
+      
+      object-fit: contain;
+      border-radius: 10px;
+   
+      box-shadow:  3px 4px 14px rgba(0,0,0,0.6);
+      @include transition-transform(.2s);
+     
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(rgba(235, 71, 126, 0.8), rgba(71, 180, 235, 0.8));
+    @include dimensions(0,100% );
+
+    padding-bottom: 100%;
+    border-radius: 50%;
+    transform: translate(-50%, 50%) scale(0.01) rotate(45deg);
+    transition: inherit;
+  }
+}
+
+.comic__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 1em;
+    @include dimensions(100%,100% );
+    
+    color: $color;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    z-index: 100;
+}
+
+.comic__title {
+  @include transition-transform(.12s);
+    transform: translate(0,-1000%);
+    font-family: sans-serif;
+    font-weight: 800;
+    color:$color;
+  }
+
+.comic__favoriteIcon {
+  @include transition-transform(.12s);
+    transform: translate(0,-1000%);
+    outline-style: none;
+    outline-width: 0;
+}
+
+
+  .comic__button {
+    @include transition-transform(.12s);
+    transform: translate(0,1000%);
+    margin: 0 auto;
+    width: 50%;
+    border-radius: 4px;
+    padding: 0.3rem 0.7rem;
+    border: 1px solid $color;
+    background-color: transparent;
+    font-family: sans-serif;
+    font-weight: $font-weight;
+  }
+
+  .comic__description {
+    @include transition-transform(.12s);
+    transform: translate(0,1000%);
+    color:$color;
+    font-weight:$font-weight;
+  }
+
+  
+  .comic:hover .comic__title, .comic:hover .comic__button, .comic:hover .comic__favoriteIcon,
+  .comic:hover .comic__description {
+    transform: translate(0);
+    transition: transform 0.3s 0.3s;
+  }
+  .comic:hover .comic__img {
+    @include transforming(1.5,10deg );
+  }
+  .comic:hover::after {
+    @include transforming(2.5,45deg );
+  }
+
+  @media screen and (max-width: 600px) {
+    
+.comic {
+  @include dimensions(50%,50% );
+
+  margin: 0 auto;
+  margin-bottom: 3rem;
+}
+
+
+  }

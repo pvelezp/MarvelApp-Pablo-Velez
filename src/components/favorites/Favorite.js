@@ -3,7 +3,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import { IconButton } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-import './Favorite.css'
+import './Favorite.scss'
 import { FavoriteContext } from './../../context/FavoriteProvider';
 
 

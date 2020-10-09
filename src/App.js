@@ -1,33 +1,31 @@
-import React from 'react';
-import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
-
+import React,{useReducer,useEffect} from 'react';
 import './App.css';
+import AppRouter from './routers/AppRouter';
+import { AuthContext } from './auth/authContext';
+import { authReducer } from './auth/authReducer';
+import { FavoriteProvider } from './context/FavoriteProvider';
 
-import MainPage from './components/mainPage/MainPage';
-import CharacterDetails from './components/characters/CharacterDetails';
-import Characters from './components/characters/Characters';
-import ComicDetails from './components/comics/ComicDetails';
-import Comics from './components/comics/Comics';
-import Favorites from './components/favorites/Favorites';
-import NavBar from './components/ui/NavBar';
-import Stories from './components/stories/Stories';
+const init = () => {
+   return JSON.parse(localStorage.getItem('user')) || {logged: false} 
+}
 
 function App() {
+
+  const [user,dispatch] =  useReducer(authReducer, {}, init)
+
+  useEffect(() => {
+      localStorage.setItem('user', JSON.stringify(user))
+  }, [user])
+
+
   return (
-    <Router>
-      <div className="App__container">
-      <NavBar />
-      <Switch>
-      <Route exact path='/' component={MainPage} />
-      <Route path='/character/:characterId' component={CharacterDetails} />
-      <Route path='/characters' component={Characters} />
-      <Route  path='/comic/:comicId' component={ComicDetails} />
-      <Route  path='/comics' component={Comics} />
-      <Route  path='/stories' component={Stories} />
-     <Route path='/favorites' component={Favorites} /> 
-      </Switch>
-      </div>
-    </Router>
+    <FavoriteProvider>
+
+  
+    <AuthContext.Provider value={{user, dispatch}}>
+<AppRouter />
+    </AuthContext.Provider>
+    </FavoriteProvider>
   );
 }
 
